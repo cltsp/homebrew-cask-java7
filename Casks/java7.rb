@@ -53,15 +53,18 @@ cask 'java7' do
                     ],
             rmdir:  '~/Library/Application Support/Oracle/'
 
-  caveats <<-EOS.undent
-    This Cask makes minor modifications to the JRE to prevent any packaged
-    application issues.
-    If your Java application still asks for JRE installation, you might need to
-    reboot or logout/login.
-    The JRE packaging bug is discussed here:
-        https://bugs.eclipse.org/bugs/show_bug.cgi?id=411361
-    Installing this Cask means you have AGREED to the Oracle Binary Code License
-    Agreement for Java SE at
-        http://www.oracle.com/technetwork/java/javase/terms/license/index.html
+  caveats do
+    license 'https://www.oracle.com/technetwork/java/javase/terms/license/index.html'
+    <<-EOS
+      This Cask makes minor modifications to the JRE to prevent any packaged
+      application issues.
+      If your Java application still asks for JRE installation, you might need to
+      reboot or logout/login.
+      The JRE packaging bug is discussed here:
+          https://bugs.eclipse.org/bugs/show_bug.cgi?id=411361
+      Installing this Cask means you have AGREED to the Oracle Binary Code License
+      Agreement for Java SE at
+          http://www.oracle.com/technetwork/java/javase/terms/license/index.html
     EOS
+  end
 end
